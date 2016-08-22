@@ -1,9 +1,13 @@
 <?php
 
-class Home{
-
+class Home extends Controller{
+	public function __construct(){
+		parent::__construct();
+	}
+	
 	public function index(){
-		require 'application/views/_layout/header_view.php';
-		require 'application/views/_layout/footer_view.php';
+		$this->view->render('_layout/header_view');
+		$this->view->render('home/home_view');
+		$this->view->render('_layout/footer_view');
 	}
 }

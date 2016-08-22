@@ -12,13 +12,13 @@
     <title>Clean Blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL;?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="assets/css/clean-blog.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL;?>assets/css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo BASE_URL;?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -49,16 +49,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="<?php echo BASE_URL?>home">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="<?php echo BASE_URL?>login">Login</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
+                        <a href="<?php echo BASE_URL?>login/register">Register</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="<?php echo BASE_URL?>home/about">About</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL?>home/post">Post</a>
                     </li>
                 </ul>
             </div>
@@ -67,18 +70,4 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Clean Blog</h1>
-                        <hr class="small">
-                        <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    

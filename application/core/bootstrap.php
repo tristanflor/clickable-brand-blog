@@ -12,7 +12,7 @@ class Bootstrap {
 			$controller = new $this->_url[0]();
 			
 			if(isset($this->_url[1])){
-				$controller->${$this->_url[1]}();
+				$controller->{$this->_url[1]}();
 			} else {
 				$controller->index();
 			}
