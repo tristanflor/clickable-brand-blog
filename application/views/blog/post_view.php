@@ -15,11 +15,15 @@
     </header>
 
 <div class="container">
-	<form action="<?php echo BASE_URL; ?>login/save" method="post">
+	<form action="<?php echo BASE_URL; ?>blog/create" method="post">
 	  <div class="form-group">
 	    <label for="title">Title</label>
 	    <input type="text" class="form-control" id="title" name="title" placeholder="Title"/>
 	  </div>
+      <div class="form-group">
+        <label for="subtitle">Sub-title</label>
+        <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="Enter brief subtitle"/>
+      </div>
 	  <div class="form-group">
 	  	<label for="content">Content</label>
 	    <textarea class="form-control" id="body" name="body" placeholder="Type blog content" rows="10" /></textarea>

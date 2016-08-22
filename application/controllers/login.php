@@ -50,6 +50,7 @@ class Login extends Controller{
 
 		if($user){
 			$_SESSION['is_logged_in'] = true;
+			$_SESSION['user_id'] = $user['id'];
 			$_SESSION['username'] = $user['username'];
 			$_SESSION['first_name'] = $user['firstname'];
 			$_SESSION['last_name'] = $user['lastname'];

@@ -16,6 +16,7 @@
 
     <!-- Theme CSS -->
     <link href="<?php echo BASE_URL;?>assets/css/clean-blog.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL;?>assets/css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo BASE_URL;?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -53,7 +54,7 @@
                     </li>
                     <?php if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']): ?>
                     <li>
-                        <a href="<?php echo BASE_URL?>home/post">Post</a>
+                        <a href="<?php echo BASE_URL?>blog/post">Post</a>
                     </li>
                     <li>
                         <a href="<?php echo BASE_URL?>login/logout">Logout</a>
@@ -66,9 +67,6 @@
                         <a href="<?php echo BASE_URL?>login/register">Register</a>
                     </li>
                     <?php endif; ?>
-                    <li>
-                        <a href="<?php echo BASE_URL?>home/about">About</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
