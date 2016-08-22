@@ -17,4 +17,15 @@ class User_model extends Database{
 	    $stmt->execute();
 	}
 
+	public function auth($username, $password){
+		$stmt = $this->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+		$stmt->bindParam(':username', $username);
+	    $stmt->bindParam(':password', md5($password));
+	    $stmt->execute();
+
+	    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	    return empty($result) ? FALSE : $result[0];
+	}
+
 }

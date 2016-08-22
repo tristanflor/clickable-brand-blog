@@ -51,17 +51,23 @@
                     <li>
                         <a href="<?php echo BASE_URL?>home">Home</a>
                     </li>
+                    <?php if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']): ?>
+                    <li>
+                        <a href="<?php echo BASE_URL?>home/post">Post</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL?>login/logout">Logout</a>
+                    </li>
+                    <?php else: ?>    
                     <li>
                         <a href="<?php echo BASE_URL?>login">Login</a>
                     </li>
                     <li>
                         <a href="<?php echo BASE_URL?>login/register">Register</a>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <a href="<?php echo BASE_URL?>home/about">About</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo BASE_URL?>home/post">Post</a>
                     </li>
                 </ul>
             </div>

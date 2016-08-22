@@ -5,6 +5,8 @@ class Bootstrap {
 	private $_url;
 
 	public function __construct(){
+		session_start();
+		
 		if(isset($_GET['url'])){
 			$this->_url = explode('/', $_GET['url']);
 
