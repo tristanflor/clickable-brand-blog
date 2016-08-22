@@ -3,6 +3,7 @@
 class Home{
 
 	public function index(){
-		echo 'hello';
+		require 'application/views/_layout/header_view.php';
+		require 'application/views/_layout/footer_view.php';
 	}
 }

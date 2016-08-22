@@ -1,5 +1,7 @@
 <?php
 
+require 'config.php';
+
 function __autoload($classname){
 	require 'application/core/'.$classname.'.php';
 }
