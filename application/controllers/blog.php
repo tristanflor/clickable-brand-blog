@@ -42,6 +42,17 @@ class Blog extends Controller{
 		die();
 	}
 
+	public function edit($blog_id){
+		require 'application/models/blog_model.php';
+
+		$blog = new Blog_model();
+
+		$this->view->blog_post = $blog->get_blog($blog_id);
+		$this->view->render('_layout/header_view');
+		$this->view->render('blog/edit_blog_view');
+		$this->view->render('_layout/footer_view');	
+	}
+
 	public function comment(){
 		$blog_id = $_POST['blog_id'];
 		$comment = $_POST['comment'];
@@ -50,6 +61,21 @@ class Blog extends Controller{
 
 		$blog = new Blog_model();
 		$blog->create_comment($comment, $blog_id, $_SESSION['user_id']);
+
+		header("Location: ".BASE_URL.'blog/view/'.$blog_id);
+		die();
+	}
+
+	public function save(){
+		$blog_id = $_POST['blog_id'];
+		$title = $_POST['title'];
+		$subtitle = $_POST['subtitle'];
+		$body = $_POST['body'];
+
+		require 'application/models/blog_model.php';
+
+		$blog = new Blog_model();
+		$blog->update($blog_id, $title, $subtitle, $body);
 
 		header("Location: ".BASE_URL.'blog/view/'.$blog_id);
 		die();

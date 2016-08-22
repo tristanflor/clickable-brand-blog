@@ -6,7 +6,7 @@ class Blog_model extends Database{
 	}
 
 	public function get_blog($blog_id){
-		$stmt = $this->prepare("SELECT b.id, b.title, b.subtitle, b.body, b.create_date, u.firstname, u.lastname FROM blogs b INNER JOIN users u ON b.creator_id = u.id WHERE b.id = :blog_id AND b.status_id = 1");
+		$stmt = $this->prepare("SELECT b.id, b.title, b.subtitle, b.body, b.create_date, u.firstname, u.lastname, u.id creator_id FROM blogs b INNER JOIN users u ON b.creator_id = u.id WHERE b.id = :blog_id AND b.status_id = 1");
 		$stmt->bindParam(':blog_id', $blog_id);
 	    $stmt->execute();
 
@@ -48,6 +48,16 @@ class Blog_model extends Database{
 	    $stmt->bindParam(':comment', $comment);
 	    $stmt->bindParam(':blog_id', $blog_id);
 	    $stmt->bindParam(':user_id', $creator_id);
+	    $stmt->execute();
+	}
+
+	public function update($blog_id, $title, $subtitle, $body){
+		$stmt = $this->prepare("UPDATE blogs SET title  = :title, subtitle = :subtitle, body = :body WHERE id = :blog_id");
+		$stmt->bindParam(':blog_id', $blog_id);
+		$stmt->bindParam(':title', $title);
+		$stmt->bindParam(':subtitle', $subtitle);
+	    $stmt->bindParam(':body', nl2br($body));
+
 	    $stmt->execute();
 	}
 }

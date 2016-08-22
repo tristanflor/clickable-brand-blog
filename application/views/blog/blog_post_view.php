@@ -20,6 +20,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <?php echo $this->blog_post['body'];?>
+                    <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $this->blog_post['creator_id']):?>
+                    <p><a class="btn btn-default mt-15" href="<?php echo BASE_URL?>blog/edit/<?php echo $this->blog_post['id']?>">Edit Blog</a></p>
+                    <?php endif; ?>
                 </div>
             </div>
             <hr/>
@@ -27,10 +30,11 @@
                 <?php foreach($this->comments as $comment): ?>
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 comment-row">
                         <strong><?php echo $comment['comment']?></strong><br/>
-                        <span class="meta comment-meta"><em><a href="#"><?php echo $comment['firstname'].' '.$comment['lastname']?></a> on <?php echo date('F d, Y', strtotime($comment['create_date']));?></em></span>
+                        <span class="meta comment-meta"><em><a href="#"><?php echo $comment['firstname'].' '.$comment['lastname']?></a> on <?php echo date('F d, Y H:i:s', strtotime($comment['create_date']));?></em></span>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
+            <?php if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']): ?>
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <form action="<?php echo BASE_URL?>/blog/comment" method="post">
                     <input type="hidden" name="blog_id" value="<?php echo $this->blog_post['id'];?>">
@@ -40,7 +44,8 @@
                         </div>
                         <button type="submit" class="btn btn-default">Post Comment</button>
                     </form>
-                </div> 
+                </div>
+            <?php endif; ?>
             </div>
         </div>
     </article>
